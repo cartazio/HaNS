@@ -44,11 +44,11 @@ import Data.Map as Map
 import Data.List as List
 import Data.Maybe
 import Data.List as List
-import System.IO.Unsafe
+import System.IO.Unsafe as SIU
 import Control.Exception
 
 debug :: (Monad m) => String -> m a
-debug s = seq (unsafePerformIO $ putStrLn s) return undefined
+debug s = seq (SIU.unsafePerformIO $ putStrLn s) return undefined
 
 
 bound_ports :: Map SocketID (TCPSocket threadt) -> [Port]
